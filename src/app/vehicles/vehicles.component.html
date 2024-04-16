@@ -1,0 +1,92 @@
+<div class="container mt-4">
+    <h2>Új jármű hozzáadása</h2>
+    <form>
+      <!-- Jármű típusa -->
+      <div class="form-group">
+        <label for="vehicleType">Típus</label>
+        <input type="text" class="form-control" id="vehicleType" name="vehicleType">
+      </div>
+  
+      <!-- Gyártó -->
+      <div class="form-group">
+        <label for="manufacturer">Gyártó</label>
+        <input type="text" class="form-control" id="manufacturer" name="manufacturer">
+      </div>
+  
+      <!-- Rendszám -->
+      <div class="form-group">
+        <label for="licensePlate">Rendszám</label>
+        <input type="text" class="form-control" id="licensePlate" name="licensePlate">
+      </div>
+  
+      <!-- Alvázszám -->
+      <div class="form-group">
+        <label for="chassisNumber">Alvázszám</label>
+        <input type="text" class="form-control" id="chassisNumber" name="chassisNumber">
+      </div>
+  
+      <!-- Beszerzés dátuma -->
+      <div class="form-group">
+        <label for="purchaseDate">Beszerzés dátuma</label>
+        <input type="date" class="form-control" id="purchaseDate" name="purchaseDate">
+      </div>
+  
+      <!-- Sorszám -->
+      <div class="form-group">
+        <label for="serialNumber">Sorszám</label>
+        <input type="text" class="form-control" id="serialNumber" name="serialNumber">
+      </div>
+  
+      <!-- Kölcsönzési díj -->
+      <div class="form-group">
+        <label for="rentalFee">Kölcsönzési díj</label>
+        <input type="number" class="form-control" id="rentalFee" name="rentalFee">
+      </div>
+  
+      <!-- Futott km díj -->
+      <div class="form-group">
+        <label for="mileageFee">Futott km díj</label>
+        <input type="number" class="form-control" id="mileageFee" name="mileageFee">
+      </div>
+  
+      <!-- Státusz -->
+      <div class="form-group">
+        <label for="status">Státusz</label>
+        <select class="form-control" id="status" name="status">
+          <option value="szabad">Szabad</option>
+          <option value="kikölcsönzött">Kikölcsönzött</option>
+          <option value="selejtezett">Selejtezett</option>
+        </select>
+      </div>
+  
+      <!-- Regisztrációs gomb -->
+      <button type="button" class="btn btn-primary mt-3" onclick="addNewVehicle()">Hozzáadás</button>
+    </form>
+  
+    <hr>
+  
+    <h2>Járművek listája</h2>
+    <!-- Keresőmező -->
+    <input type="text" class="form-control mb-3" placeholder="Keresés típus vagy rendszám alapján">
+  
+    <!-- Járművek táblázata -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Típus</th>
+          <th>Gyártó</th>
+          <th>Rendszám</th>
+          <th>Alvázszám</th>
+          <th>Beszerzés dátuma</th>
+          <th>Sorszám</th>
+          <th>Kölcsönzési díj</th>
+          <th>Futott km díj</th>
+          <th>Státusz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Jármű adatok helye -->
+      </tbody>
+    </table>
+  </div>
+  
