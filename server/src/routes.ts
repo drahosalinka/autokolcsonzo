@@ -1,16 +1,16 @@
 import express from 'express';
-import { UserController } from './controller/user.controller';
+import { CustomerController } from './controller/customer.controller';
 
 export function getRouter() {
     const router = express.Router();
 
-    const userController = new UserController();
+    const customerController = new CustomerController();
 
-    router.get('/user', userController.getAll);
-    router.get('/user/:id', userController.getOne);
-    router.post('/user', userController.create);
-    router.put('/user', userController.update);
-    router.delete('/user/:id', userController.delete);
+    router.get('/customer', customerController.getAll);
+    router.get('/customer/:id', customerController.getOne);
+    router.post('/customer', customerController.create);
+    router.put('/customer', customerController.update);
+    router.delete('/customer/:id', customerController.delete);
 
     return router;
 }

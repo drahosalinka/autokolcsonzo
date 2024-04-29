@@ -1,26 +1,26 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { UserDTO } from '../../../models';
-import { UserService } from '../services/user.service';
+import { CustomerDTO } from '../../../models';
+import { CustomerService } from '../services/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-form',
+  selector: 'app-customer-form',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './user-form.component.html',
-  styleUrl: './user-form.component.css'
+  templateUrl: './customer-form.component.html',
+  styleUrl: './customer-form.component.css'
 })
-export class UserFormComponent implements OnInit {
+export class CustomerFormComponent implements OnInit {
   formBuilder = inject(FormBuilder);
 
-  userService = inject(UserService);
+  customerService = inject(CustomerService);
 
   router = inject(Router);
 
   activedRoute = inject(ActivatedRoute);
 
-  userForm = this.formBuilder.group<UserDTO>({
+  customerForm = this.formBuilder.group<CustomerDTO>({
     id: 0,
     customerId: '',
     name: '',
@@ -29,15 +29,15 @@ export class UserFormComponent implements OnInit {
     idCard: ''
   });
 
-  isNewUser = true;
+  isNewCustomer = true;
 
   ngOnInit(): void {
     const id = this.activedRoute.snapshot.params['id'];
 
     if (id) {
-      this.isNewUser = false;
-      this.userService.getOne(id).subscribe({
-        next: (user) => this.userForm.setValue(user),
+      this.isNewCustomer = false;
+      this.customerService.getOne(id).subscribe({
+        next: (customer) => this.customerForm.setValue(customer),
         error: (err) => {
           // TODO: notification
           console.error(err);
@@ -46,11 +46,11 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-  saveUser() {
-    const user = this.userForm.value as UserDTO;
+  saveCustomer() {
+    const customer = this.customerForm.value as CustomerDTO;
 
-    if (this.isNewUser) {
-      this.userService.create(user).subscribe({
+    if (this.isNewCustomer) {
+      this.customerService.create(customer).subscribe({
         next: () => {
           // TODO: notification
           this.router.navigateByUrl('/');
@@ -61,7 +61,7 @@ export class UserFormComponent implements OnInit {
       });
     }
     else {
-      this.userService.update(user).subscribe({
+      this.customerService.update(customer).subscribe({
         next: () => {
           // TODO: notification
           this.router.navigateByUrl('/');
