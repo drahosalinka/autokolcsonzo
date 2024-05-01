@@ -18,7 +18,7 @@ export function getRouter() {
     router.get('/vehicle/:id', vehicleController.getOne);
     router.post('/vehicle', vehicleController.create);
     router.put('/vehicle', vehicleController.update);
-    router.delete('/vehicler/:id', vehicleController.delete);
+    router.delete('/vehicle/:id', vehicleController.delete);
 
     return router;
 }
