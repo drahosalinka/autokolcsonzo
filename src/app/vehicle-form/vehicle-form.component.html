@@ -27,7 +27,11 @@
             </div>
             <div class="mb-3">
                 <label for="state" class="form-label">Státusz</label>
-                <input type="text" class="form-control" id="state" formControlName="state">
+                <select class="form-select" id="state" formControlName="state">
+                    <option value=Status.Free>Szabad</option>
+                    <option value=Status.InUse>Kikölcsönözve</option>
+                    <option value=Status.Scrapped>Selejtezve</option>
+                </select>
             </div>
         </form>
         <div class="text-end">

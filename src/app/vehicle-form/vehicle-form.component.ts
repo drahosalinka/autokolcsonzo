@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { VehicleDTO } from '../../../models';
 import { VehicleService } from '../services/vehicle.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Status } from '../../../server/status.enum';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -29,14 +30,14 @@ export class VehicleFormComponent implements OnInit {
     dateOfAcquisition: '',
     price: 0,
     km: 0,
-    state: '',
+    state: Status.Free,
   });
 
   isNewVehicle = true;
 
   ngOnInit(): void {
     const id = this.activedRoute.snapshot.params['id'];
-
+    
     if (id) {
       this.isNewVehicle = false;
       this.vehicleService.getOne(id).subscribe({
@@ -56,7 +57,7 @@ export class VehicleFormComponent implements OnInit {
       this.vehicleService.create(vehicle).subscribe({
         next: () => {
           // TODO: notification
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/vehicle');
         },
         error: (err) => {
           console.error(err);
@@ -67,7 +68,7 @@ export class VehicleFormComponent implements OnInit {
       this.vehicleService.update(vehicle).subscribe({
         next: () => {
           // TODO: notification
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/vehicle');
         },
         error: (err) => {
           console.error(err);

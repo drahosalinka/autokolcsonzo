@@ -1,4 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Status } from "../../status.enum";
+
 
 @Entity()
 export class Vehicle {
@@ -26,6 +28,10 @@ export class Vehicle {
     @Column()
     km: number;
 
-    @Column()
-    state: string;
+    @Column({
+        type: 'enum',
+        enum: Status,
+        default: Status.Free,
+    })
+    state: Status;
 }

@@ -1,3 +1,5 @@
+import { Status } from "../server/status.enum";
+
 export interface CustomerDTO {
     id: number;
     customerId: string;
@@ -16,5 +18,5 @@ export interface VehicleDTO {
     dateOfAcquisition: string;
     price: number;
     km: number;
-    state: string;
+    state: Status;
 }

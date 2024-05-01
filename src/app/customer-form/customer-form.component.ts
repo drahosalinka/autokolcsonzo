@@ -53,7 +53,7 @@ export class CustomerFormComponent implements OnInit {
       this.customerService.create(customer).subscribe({
         next: () => {
           // TODO: notification
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/customer');
         },
         error: (err) => {
           console.error(err);
@@ -64,7 +64,7 @@ export class CustomerFormComponent implements OnInit {
       this.customerService.update(customer).subscribe({
         next: () => {
           // TODO: notification
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/customer');
         },
         error: (err) => {
           console.error(err);
