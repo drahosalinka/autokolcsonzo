@@ -3,6 +3,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
+import { BorrowFormComponent } from './borrow-form/borrow-form.component';
 
 export const routes: Routes = [
     {
@@ -28,5 +29,9 @@ export const routes: Routes = [
     {
         path: 'edit-vehicle/:id',
         component: VehicleFormComponent
+    },
+    {
+        path: 'borrow',
+        component: BorrowFormComponent
     }
 ];

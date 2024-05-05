@@ -20,3 +20,11 @@ export interface VehicleDTO {
     km: number;
     state: Status;
 }
+
+export interface BorrowVehicleDTO {
+    id: number;
+    timestamp: string;
+    customer: null | CustomerDTO;
+    vehicle: null | VehicleDTO;
+    minutes: number;
+}

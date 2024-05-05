@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { BorrowVehicle } from "./BorrowVehicle";
 
 @Entity()
 export class Customer {
@@ -19,4 +20,7 @@ export class Customer {
 
     @Column()
     idCard: string;
+
+    @OneToMany(type => BorrowVehicle, borrow => borrow.customer)
+    borrowedVehicles: BorrowVehicle[];
 }
