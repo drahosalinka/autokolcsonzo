@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 import { Status } from "../../status.enum";
-import { BorrowController } from "../controller/borrow.controller";
 import { BorrowVehicle } from "./BorrowVehicle";
+import { BorrowController } from "../controller/borrow.controller";
 
 
 @Entity()

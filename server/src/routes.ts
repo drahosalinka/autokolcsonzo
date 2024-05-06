@@ -25,6 +25,12 @@ export function getRouter() {
     router.post('/borrow', borrowController.create);
     router.get('/borrow/:customerId', borrowController.borrowsByCustomer);
     router.get('/borrow/:vehicleId', borrowController.borrowsByVehicle);
+
+    router.get('/return', vehicleController.getAll);
+    router.get('/return/:id', vehicleController.getOne);
+    router.post('/return', borrowController.create);
+    router.get('/return/:customerId', borrowController.borrowsByCustomer);
+    router.get('/return/:vehicleId', borrowController.borrowsByVehicle);
     
     return router;
 }
