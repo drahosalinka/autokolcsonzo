@@ -19,6 +19,6 @@ export class BorrowVehicle implements BorrowVehicleDTO {
     vehicle: VehicleDTO;
 
     @Column()
-    minutes: number;
+    days: number;
 
 }

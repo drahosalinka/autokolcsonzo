@@ -26,5 +26,5 @@ export interface BorrowVehicleDTO {
     timestamp: string;
     customer: null | CustomerDTO;
     vehicle: null | VehicleDTO;
-    minutes: number;
+    days: number;
 }

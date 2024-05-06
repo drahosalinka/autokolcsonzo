@@ -28,7 +28,7 @@ export class BorrowFormComponent implements OnInit {
     timestamp: '',
     customer: null,
     vehicle: null,
-    minutes: 0
+    days: 0
   });
 
   ngOnInit(): void {
@@ -40,5 +40,9 @@ export class BorrowFormComponent implements OnInit {
     const borrow = this.borrowForm.value as BorrowVehicleDTO;
 
     this.borrowService.create(borrow).subscribe(borrow => { console.log(borrow); });
+  }
+
+  getFreeVehicles(): any[] {
+    return this.vehicles.filter(vehicle => vehicle.state === 'szabad');
   }
 }
