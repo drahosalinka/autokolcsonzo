@@ -4,6 +4,7 @@ import { BorrowService } from '../services/borrow.service';
 import { BorrowVehicleDTO, CustomerDTO, VehicleDTO } from '../../../models';
 import { CustomerService } from '../services/customer.service';
 import { VehicleService } from '../services/vehicle.service';
+import { Status } from '../../../server/status.enum';
 
 @Component({
   selector: 'app-borrow-form',
@@ -38,8 +39,11 @@ export class BorrowFormComponent implements OnInit {
 
   createBorrow() {
     const borrow = this.borrowForm.value as BorrowVehicleDTO;
+    const vehicle = borrow.vehicle as VehicleDTO;
+    vehicle.state = Status.InUse;
 
     this.borrowService.create(borrow).subscribe(borrow => { console.log(borrow); });
+    this.vehicleService.update(vehicle).subscribe(vehicle => { console.log(vehicle); });
   }
 
   getFreeVehicles(): any[] {
