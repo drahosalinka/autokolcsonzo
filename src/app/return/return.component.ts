@@ -1,7 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BorrowService } from '../services/borrow.service';
-import { BorrowVehicleDTO } from '../../../models';
+import { BorrowVehicleDTO, VehicleDTO } from '../../../models';
 import { Router } from '@angular/router';
+import { Status } from '../../../server/status.enum';
+import { VehicleService } from '../services/vehicle.service';
 
 @Component({
   selector: 'app-return',
@@ -12,11 +14,13 @@ import { Router } from '@angular/router';
 })
 export class ReturnComponent implements OnInit {
   borrowService = inject(BorrowService);
+  vehicleService = inject(VehicleService);
+
 
   router = inject(Router);
 
   borrows: BorrowVehicleDTO[] = [];
-
+  
   ngOnInit(): void {
     this.borrowService.getAll().subscribe({
       next: borrows => this.borrows = borrows,
@@ -42,4 +46,32 @@ export class ReturnComponent implements OnInit {
       }
     });
   }
+
+  openReturn(borrow: BorrowVehicleDTO) {
+    // Megjeleníthetünk egy felugró ablakot itt
+    const isDamaged = confirm('A jármű sérült?');
+    const userInput = prompt('Futott kilóméter:');
+
+    if (userInput !== null) {
+      const kms = parseFloat(userInput);
+
+    // Kalkuláció
+    const price = isDamaged ? ((borrow.days * 8000 + kms * 200) * 1.15) : (borrow.days * 8000 + kms * 200);
+
+    // Az eredmény megjelenítése (csak példa)
+    alert(`Fizetendő: ${price}`);
+
+    const vehicle = borrow.vehicle as VehicleDTO;
+    if (isDamaged) {
+      vehicle.state = Status.Scrapped;
+    } else {
+      vehicle.state = Status.Free;
+    }
+
+    vehicle.km = vehicle.km + kms;
+
+    this.borrowService.delete(borrow.id).subscribe(borrow => { console.log(borrow); });
+    this.vehicleService.update(vehicle).subscribe(vehicle => { console.log(vehicle); });
+  }
+}
 }
