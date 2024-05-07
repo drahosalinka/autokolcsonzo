@@ -2,8 +2,8 @@
     <div class="col-md-6">
         <form [formGroup]="borrowForm">
             <div class="mb-3">
-                <label for="borrower" class="form-label">Ügyfél</label>
-                <select class="form-select" id="borrower" formControlName="borrower">
+                <label for="customer" class="form-label">Ügyfél</label>
+                <select class="form-select" id="customer" formControlName="customer">
                     @for(customer of customers; track $index) {
                         <option [ngValue]="{ id: customer.id }">{{ customer.name }} ({{ customer.customerId }})</option>
                     }
