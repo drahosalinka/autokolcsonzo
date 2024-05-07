@@ -4,13 +4,13 @@ import { BorrowVehicleDTO } from '../../../models';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-borrow-done',
+  selector: 'app-return',
   standalone: true,
   imports: [],
-  templateUrl: './borrow-done.component.html',
-  styleUrl: './borrow-done.component.css'
+  templateUrl: './return.component.html',
+  styleUrl: './return.component.css'
 })
-export class BorrowDoneComponent implements OnInit {
+export class ReturnComponent implements OnInit {
   borrowService = inject(BorrowService);
 
   router = inject(Router);

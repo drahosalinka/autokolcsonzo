@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorrowDoneComponent } from './borrow-done.component';
+import { ReturnComponent } from './return.component';
 
-describe('BorrowDoneComponent', () => {
-  let component: BorrowDoneComponent;
-  let fixture: ComponentFixture<BorrowDoneComponent>;
+describe('ReturnComponent', () => {
+  let component: ReturnComponent;
+  let fixture: ComponentFixture<ReturnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BorrowDoneComponent]
+      imports: [ReturnComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BorrowDoneComponent);
+    fixture = TestBed.createComponent(ReturnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

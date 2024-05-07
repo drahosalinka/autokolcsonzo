@@ -4,7 +4,7 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 import { BorrowFormComponent } from './borrow-form/borrow-form.component';
-import { BorrowDoneComponent } from './borrow-done/borrow-done.component';
+import { ReturnComponent } from './return/return.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +37,6 @@ export const routes: Routes = [
     },
     {
         path: 'return',
-        component: BorrowDoneComponent
+        component: ReturnComponent
     }
 ];
