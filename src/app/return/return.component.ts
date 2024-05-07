@@ -47,7 +47,7 @@ export class ReturnComponent implements OnInit {
     });
   }
 
-  openReturn(borrow: BorrowVehicleDTO) {
+ openReturn(borrow: BorrowVehicleDTO) {
     // Megjeleníthetünk egy felugró ablakot itt
     const isDamaged = confirm('A jármű sérült?');
     const userInput = prompt('Futott kilóméter:');

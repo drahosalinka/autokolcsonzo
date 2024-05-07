@@ -38,5 +38,5 @@ export const routes: Routes = [
     {
         path: 'return',
         component: ReturnComponent
-    }
+    },
 ];

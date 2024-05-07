@@ -26,11 +26,13 @@ export function getRouter() {
     router.get('/borrow/:customerId', borrowController.borrowsByCustomer);
     router.get('/borrow/:vehicleId', borrowController.borrowsByVehicle);
 
-    router.get('/return', vehicleController.getAll);
-    router.get('/return/:id', vehicleController.getOne);
+    router.get('/return', borrowController.getAll);
+    router.get('/return/:id', borrowController.getOne);
     router.post('/return', borrowController.create);
     router.get('/return/:customerId', borrowController.borrowsByCustomer);
     router.get('/return/:vehicleId', borrowController.borrowsByVehicle);
+    router.delete('/return/:id', borrowController.delete);
+    router.put('/customer', customerController.update);
     
     return router;
 }
