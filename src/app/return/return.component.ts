@@ -51,12 +51,13 @@ export class ReturnComponent implements OnInit {
     // Megjeleníthetünk egy felugró ablakot itt
     const isDamaged = confirm('A jármű sérült?');
     const userInput = prompt('Futott kilóméter:');
+    const priceOfRent: number = borrow.vehicle?.price as number;
 
     if (userInput !== null) {
       const kms = parseFloat(userInput);
 
     // Kalkuláció
-    const price = isDamaged ? ((borrow.days * 8000 + kms * 200) * 1.15) : (borrow.days * 8000 + kms * 200);
+    const price = isDamaged ? ((borrow.days * priceOfRent + kms * 200) + 20000) : (borrow.days * priceOfRent + kms * 200);
 
     // Az eredmény megjelenítése (csak példa)
     alert(`Fizetendő: ${price}`);
