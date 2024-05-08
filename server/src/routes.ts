@@ -32,7 +32,7 @@ export function getRouter() {
     router.get('/return/:customerId', borrowController.borrowsByCustomer);
     router.get('/return/:vehicleId', borrowController.borrowsByVehicle);
     router.delete('/return/:id', borrowController.delete);
-    router.put('/customer', customerController.update);
+    router.put('/return', borrowController.update);
     
     return router;
 }

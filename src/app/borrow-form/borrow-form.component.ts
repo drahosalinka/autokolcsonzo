@@ -5,6 +5,7 @@ import { BorrowVehicleDTO, CustomerDTO, VehicleDTO } from '../../../models';
 import { CustomerService } from '../services/customer.service';
 import { VehicleService } from '../services/vehicle.service';
 import { Status } from '../../../server/status.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-borrow-form',
@@ -15,6 +16,8 @@ import { Status } from '../../../server/status.enum';
 })
 export class BorrowFormComponent implements OnInit {
   borrowService = inject(BorrowService);
+
+  router = inject(Router);
 
   customerService = inject(CustomerService);
   vehicleService = inject(VehicleService);
@@ -42,7 +45,14 @@ export class BorrowFormComponent implements OnInit {
     const vehicle = borrow.vehicle as VehicleDTO;
     vehicle.state = Status.InUse;
 
-    this.borrowService.create(borrow).subscribe(borrow => { console.log(borrow); });
+    this.borrowService.create(borrow).subscribe({
+      next: () => {
+        // TODO: notification
+        this.router.navigateByUrl('/return');
+      },
+      error: (err) => {
+        console.error(err);
+      }});
     this.vehicleService.update(vehicle).subscribe(vehicle => { console.log(vehicle); });
   }
 

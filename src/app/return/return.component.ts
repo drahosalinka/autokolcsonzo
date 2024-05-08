@@ -70,7 +70,14 @@ export class ReturnComponent implements OnInit {
 
     vehicle.km = vehicle.km + kms;
 
-    this.borrowService.delete(borrow.id).subscribe(borrow => { console.log(borrow); });
+    this.borrowService.delete(borrow.id).subscribe({
+      next: () => {
+      const index = this.borrows.indexOf(borrow);
+      if (index > -1) {
+        this.borrows.splice(index, 1);
+      } 
+    }
+    });
     this.vehicleService.update(vehicle).subscribe(vehicle => { console.log(vehicle); });
   }
 }
